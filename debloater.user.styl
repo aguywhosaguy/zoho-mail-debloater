@@ -1,0 +1,70 @@
+/* ==UserStyle==
+@name           Zoho Mail Declutter Jan 2024
+@namespace      github.com/aguywhosaguy
+@version        1.0.0
+@preprocessor stylus
+@description    Removes bloat and annoying menus from Zoho Mail
+@author        aguywhosaguy <aguywhosaguy@aguywhosaguy.com> (http://aguywhosaguy.com)
+@license         MIT
+@var            checkbox disableToolbar "Disable Bottom Toolbar" 1
+@var            checkbox disableAppSideBar "Disable left side bar" 0
+@var            checkbox disableRightSideBar "Disable right side bar (Overrides removing bloat)" 0
+@var            checkbox disableRightSideBarBloat "Disable right side bar bloat" 1
+@var            checkbox disableHamburger "Disable top right hamburger menu" 1
+@var            checkbox disableToolbarBloat "Disable toolbar bloat when viewing emails" 0
+@var            checkbox disableEmailSharing "Disable sharing prompt at the bottom of emails" 0
+==/UserStyle== */
+@-moz-document domain("mail.zoho.com") {
+    if disableToolbar {
+        .zmChatBar {
+            display: none;
+        }
+        .wms-mainui {
+            display: none;
+        }
+    }
+
+    if disableAppSideBar {
+        .zmAppsBar {
+            display: none;
+        }
+    }
+
+    if disableRightSideBar {
+        .zmRhsBar {
+            display: none;
+        }
+    }
+    else if disableRightSideBarBloat {
+        .rhsBottomNav {
+            display: none;
+        }
+        .zmRhsAppNav {
+            display: none;
+        }
+    }
+
+    if disableHamburger {
+        .zmHamburger {
+            display: none;
+        }
+    }
+
+    if disableToolbarBloat {
+        .jsMenuBarBlock {
+            display: none;
+        }
+
+        .jsEXTRA {
+            display: none;
+        }
+    }
+    if disableEmailSharing {
+        .zmCommentInputWra {
+            display: none;
+        }
+        .zmPVCmntBox {
+            display: none;
+        }
+    }
+}
